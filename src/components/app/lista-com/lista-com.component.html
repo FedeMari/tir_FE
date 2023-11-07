@@ -1,0 +1,52 @@
+
+
+
+<h1>Commesse</h1>
+
+<div class="table-container">
+<table>
+
+  <thead>
+    <td>Cliente</td>
+    <td>Tipo</td>
+    <td>Descrizione</td>
+    <td>Importo contratto</td>  
+    <td>Inizio</td>
+    <td>Fine</td>      
+    <td>Durata</td>
+    <td>Attivo</td>
+  </thead>
+
+  <!-- federico è un coglione -->
+  <tbody>
+    <tr *ngFor="let commessa of commesse!.reverse()">
+      <td>{{commessa.cliente.nome}}</td>
+      <td>{{commessa.tipo}}</td>
+      <td>{{commessa.descrizione}}</td>
+      <td>{{commessa.importoContratto}}</td>
+      <td>{{commessa.dataInizio | date:'dd/MM/yyyy'}}</td>
+      <td>{{commessa.dataFine | date:'dd/MM/yyyy'}}</td>      
+      <td>{{commessa.durata }}</td>
+      <td>{{commessa.attivo ? 'Attivo' : 'Inattivo'}} </td>
+
+
+      <td id="btn"> <button class="aggiungi bi bi-person"></button> <button (click)="openPopup(commessa)" class="modifica bi bi-pencil-square"> </button> 
+      <button (click)="deleteDip(commessa)" class="elimina bi bi-trash3-fill"></button> </td>
+
+      
+    </tr>
+  </tbody>
+
+
+</table> 
+</div>
+
+
+<ng-container *ngIf="showPopup">
+  <app-update-com [commessa]="updateComm" (closePopup)="closePopup()" ></app-update-com>
+</ng-container>
+
+
+  
+
+

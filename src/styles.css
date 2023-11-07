@@ -1,0 +1,14 @@
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-image: url('/assets/images/sfondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 150vh; /* Imposta l'altezza a 100% per coprire l'intera finestra */
+  margin: 0;
+  padding: 0;
+}
+
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";

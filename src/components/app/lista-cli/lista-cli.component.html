@@ -1,0 +1,33 @@
+<h1>Clienti</h1>
+<div class="table-container">
+<table>
+
+  <thead>
+
+    <td>Nome</td>
+    <td>Partita IVA</td>
+    <td>Telefono</td>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let cliente of clienti!.reverse()">
+
+      <td>{{cliente.nome}}</td>
+      <td>{{cliente.partitaIva}}</td>
+      <td>{{cliente.telefono}}</td>
+      <td id="btn"><button (click)="openPopup(cliente)" class="modifica bi bi-pencil-square"> </button> 
+      <button (click)="deleteCli(cliente)" class="elimina bi bi-trash3-fill"></button> </td>
+
+      
+    </tr>
+  </tbody>
+
+
+</table> 
+
+</div>
+
+<ng-container *ngIf="showPopup">
+  <app-update-cli [cliente]="updatedCli" (closePopup)="closePopup()" ></app-update-cli>
+</ng-container>
+

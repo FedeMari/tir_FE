@@ -1,0 +1,52 @@
+
+
+
+<h1>Dipendenti</h1>
+
+<div class="table-container">
+<table>
+
+  <thead>
+    <td>ID</td>
+    <td>Nome</td>
+    <td>Cognome</td>
+    <td>Codice Fiscale</td>
+    <td>Email</td>
+    <td>Telefono</td>
+    <td>Ruolo</td>
+    <td>Registrato</td>
+    <td>Attivo</td>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let dipendente of dipendenti">
+      <td>{{dipendente.id}}</td>
+      <td>{{dipendente.nome}}</td>
+      <td>{{dipendente.cognome }}</td>
+      <td>{{dipendente.cf}}</td>
+      <td>{{dipendente.email}}</td>
+      <td>{{dipendente.telefono}}</td>
+      <td>{{dipendente.ruolo?.anzianita}}</td>
+      <td>{{dipendente.registrato ? 'Si' : 'No' }} </td>
+      <td>{{dipendente.attivo ? 'Attivo' : 'Inattivo'}} </td>
+      
+      <td id="btn"><button (click)="openPopupUpdate(dipendente)" class="modifica bi bi-pencil-square"> </button> 
+      <button (click)="deleteDip(dipendente)" class="elimina bi bi-trash3-fill"></button> </td>
+
+      
+    </tr>
+  </tbody>
+
+
+</table> 
+
+</div>
+
+<ng-container *ngIf="showPopupUpdate">
+  <app-update-dip [dipendente]="updatedDip" (closePopup)="closePopupUpdate()" ></app-update-dip>
+</ng-container>
+
+
+  
+
+
